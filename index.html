@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KT BUSINESS & SOLUTIONS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #fcf9f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2e2520;
+    }
+
+    /* Barre de navigation fixe */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(252, 249, 245, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f0eae1;
+    }
+    .navbar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #10b981;
+    }
+    .nav-logo span {
+      font-weight: 800;
+      font-size: 16px;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      overflow-x: auto;
+      width: 100%;
+      white-space: nowrap;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: #5c4e46;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #f5efe6;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover {
+      background: #10b981;
+      color: white;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: 120px auto 40px auto;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+    .section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0px 4px 20px rgba(92, 78, 70, 0.03);
+      border: 1px solid #f5efe6;
+      text-align: center;
+    }
+
+    .profile-badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .big-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #10b981;
+      margin: 10px auto 20px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    h2.section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+    .section-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #4a5568;
+      margin-bottom: 20px;
+    }
+
+    .stats-grid {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .stat-card {
+      flex: 1;
+      background: #faf7f2;
+      border-radius: 16px;
+      padding: 16px 10px;
+      border: 1px solid #f0eae1;
+    }
+    .stat-number { font-size: 22px; font-weight: 800; color: #10b981; }
+    .stat-label { font-size: 11px; color: #718096; font-weight: 600; margin-top: 4px; text-transform: uppercase; }
+
+    /* Grande offre de lancement pour e-commerçant */
+    .launch-box {
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .price-tag-launch {
+      font-size: 24px;
+      font-weight: 800;
+      color: #d97706;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .item-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #edf2f7;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .item-tag {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .item-title { font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 6px 0; }
+    .item-text { font-size: 13px; color: #64748b; line-height: 1.5; margin: 0 0 12px 0; }
+
+    .product-images { display: flex; gap: 10px; margin: 12px 0; }
+    .product-images img { width: 50%; height: 130px; object-fit: cover; border-radius: 12px; border: 1px solid #e2e8f0; }
+
+    .price-tag { font-size: 20px; font-weight: 800; color: #10b981; margin: 10px 0; }
+
+    .cta-btn {
+      width: 100%;
+      background: #10b981;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
+    }
+    .cta-btn-gold {
+      background: #f59e0b;
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+    }
+
+    .review-item { text-align: left; font-size: 13px; padding: 12px 0; border-bottom: 1px solid #edf2f7; }
+    .review-item:last-child { border-bottom: none; }
+    .stars { color: #f59e0b; margin-right: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE DE NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-top">
+      <div class="nav-logo">
+        <img src="https://i.postimg.cc/k4KrFwPj/IMG-20250804-WA0028-1-(1).jpg" alt="Logo">
+        <span>KT BUSINESS</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#profil">👤 Profil</a>
+      <a href="#projet-saas">🚀 Projet E-com</a>
+      <a href="#formations">📚 Formation</a>
+      <a href="#produits">📦 Produits</a>
+      <a href="#avis">⭐ Avis</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- SECTION 1 : PROFIL & CREDIBILITE -->
+    <div class="section" id="profil">
+      <span class="profile-badge">📍 Disponible au Sénégal</span>
+      <img src="https://i.postimg.cc/k4KrFwPj/IMG-20250804-WA0028-1-(1).jpg" class="big-avatar" alt="Khalipha Thioubou">
+      
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="section-desc">
+        Entrepreneur passionné spécialisé dans le e-commerce et les technologies digitales. J'aide les ambitieux en Afrique à bâtir des business en ligne rentables avec des solutions concrètes et des stratégies adapté au marché local.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">450+</div>
+          <div class="stat-label">Entrepreneurs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1100+</div>
+          <div class="stat-label">Membres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 : LE PROJET POUR LES E-COMMERÇANTS -->
+    <div class="section" id="projet-saas">
+      <span class="profile-badge" style="background:#fef3c7; color:#d97706;">🔥 NOUVEAU PROJET</span>
+      <h2 class="section-title">Votre Boutique Pro en 2 min</h2>
+      <p class="section-desc">Vous êtes e-commerçant au Sénégal ? Plus besoin de site web complexe. Obtenez un catalogue ultra-rapide connecté directement à votre WhatsApp.</p>
+      
+      <div class="launch-box">
+        <div class="price-tag-launch">1er Mois GRATUIT</div>
+        <p style="font-size: 13px; color: #4a5568; margin: 0 0 10px 0; text-align:center; font-weight:600;">Puis seulement 3 000 FCFA / mois</p>
+        <ul style="padding-left: 15px; margin: 0; font-size: 13px; line-height: 1.6; color: #334155;">
+          <li>⚡ Lien unique personnalisé pour votre marque</li>
+          <li>📦 Ajout de catalogue produits illimité</li>
+          <li>💬 Bouton direct de commande WhatsApp</li>
+          <li>⭐ Module d'avis clients intégré</li>
+        </ul>
+      </div>
+      
+      <a href="https://api.whatsapp.com/send?phone=221762468392&text=Bonjour%20KT%20Solutions,%20je%20suis%20e-commerçant%20et%20je%20veux%20profiter%20du%20premier%20mois%20gratuit%20pour%20ma%20boutique" style="text-decoration:none;">
+        <button class="cta-btn cta-btn-gold">Je veux mon mois gratuit</button>
+      </a>
+    </div>
+
+    <!-- SECTION 3 : FORMATIONS -->
+    <div class="section" id="formations">
+      <h2 class="section-title">Nos Formations</h2>
+      <p class="section-desc">Apprenez les compétences indispensables pour générer vos premiers revenus en ligne.</p>
+      
+      <div class="item-card">
+        <span class="item-tag">E-com Start & Pro</span>
+        <h3 class="item-title">E-Commerce Masterclass</h3>
+        <p class="item-text">La méthodologie de A à Z pour sourcer des produits gagnants, lancer vos publicités et gérer vos livraisons au Sénégal.</p>
+        <a href="https://api.whatsapp.com/send?phone=221762468392&text=Je%20suis%20intéressé%20par%20la%20formation%20E-commerce" style="text-decoration:none;"><button class="cta-btn">Rejoindre la formation</button></a>
+      </div>
+    </div>
+
+    <!-- SECTION 4 : PRODUITS DISPONIBLES -->
+    <div class="section" id="produits">
+      <h2 class="section-title">Produits Disponibles</h2>
+      <p class="section-desc">Matériel de santé connectée de haute précision, disponible en stock limité.</p>
+      
+      <div class="item-card">
+        <span class="item-tag">Santé Connectée</span>
+        <h3 class="item-title">Tensiomètres Électroniques Premium</h3>
+        <p class="item-text">Suivez votre santé au quotidien avec nos appareils de mesure fiables (modèles bras et poignet intelligents).</p>
+        
+        <div class="product-images">
+          <img src="https://i.postimg.cc/mgtQ55pX/Screenshot-20260323-151139-2.jpg" alt="Tensiomètre Bras">
+          <img src="https://i.postimg.cc/HkVQhhv3/Screenshot-20260323-151058.png" alt="Tensiomètre Poignet">
+        </div>
+
+        <div class="price-tag">À partir de 12 500 FCFA</div>
+        <a href="https://api.whatsapp.com/send?phone=221762468392&text=Bonjour,%20je%20souhaite%20commander%20un%20tensiomètre" style="text-decoration:none;"><button class="cta-btn" style="background:#0f172a;">Commander sur WhatsApp</button></a>
+      </div>
+    </div>
+
+    <!-- SECTION 5 : AVIS CLIENTS -->
+    <div class="section" id="avis">
+      <h2 class="section-title">Avis des Clients</h2>
+      <p class="section-desc">Ceux qui nous font confiance au quotidien.</p>
+      
+      <div class="review-item">
+        <div><span class="stars">★★★★★</span><strong>Moussa K.</strong> <small style="color:#a0aec0;">(Dakar)</small></div>
+        <p style="margin:4px 0 0; color:#4a5568;">"Le suivi santé est top et la formation m'a permis de lancer ma propre boutique. Service client impeccable !"</p>
+      </div>
+
+      <div class="review-item">
+        <div><span class="stars">★★★★★</span><strong>Awa S.</strong> <small style="color:#a0aec0;">(Mboro)</small></div>
+        <p style="margin:4px 0 0; color:#4a5568;">"Livraison rapide au Sénégal. Le tensiomètre de poignet est très pratique à utiliser tous les jours."</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+  </html>
+  
